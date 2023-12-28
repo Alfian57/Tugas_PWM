@@ -15,6 +15,9 @@ html {
     bottom: 15px;
     right: 15px;
     z-index: 98;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .mobile-menu {
@@ -56,7 +59,7 @@ html {
     position: fixed;
     width: 100vw;
     padding: 5px 0;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, .75);
     justify-content: center;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -122,22 +125,39 @@ html {
 }
 
 #home {
+    padding: 20px 30px 50px;
     display: flex;
+    position: relative;
     flex-direction: column;
     gap: 10px;
     align-items: center;
     justify-content: center;
     height: 85vh;
-    background-image: url('assets/images/bg-home.jpg');
+    text-align: center;
+    background-image: url('assets/images/gallery-4.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; 
 }
 
+#home .dark-background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: .8;
+}
+
+#home h1, p, a {
+    z-index: 10;
+}
+
 #home h1 {
     font-family: 'Caveat', cursive;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     animation: show-up 2s;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 #home .bakmi-text {
@@ -152,13 +172,25 @@ html {
     font-weight: 600;
 }
 
-#home h2 {
-    font-family: 'Caveat', cursive;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+#home p {
     color: white;
-    font-size: 78px;
-    font-weight: 900;
+    font-size: 24px;
     animation: show-up 2s;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 15px;
+}
+
+#home .cta-button {
+    padding: 8px 15px;
+    background-color: #983939;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    animation: show-up 2s;
+}
+
+#home .cta-button:hover {
+    background-color: #491a1a;
 }
 
 #philosophy {
@@ -194,6 +226,7 @@ html {
     text-align: justify;
     font-size: 18px;
     color: white;
+    text-indent: 50px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
@@ -219,11 +252,11 @@ html {
     font-weight: 700;
 }
 
-#about-us h1 .about-text {
+#about-us h1 .tentang-text {
     color: #983939;
 }
 
-#about-us h1 .us-text {
+#about-us h1 .kami-text {
     color: #f5b919;
 }
 
@@ -231,6 +264,7 @@ html {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     text-align: justify;
     font-size: 18px;
+    text-indent: 50px;
     color: white;
 }
 
@@ -277,11 +311,26 @@ html {
     cursor: pointer;
 }
 
-#menu .menu-card-container .menu-card .menu-img {
+#menu .menu-card-container .menu-card div {
+    position: relative;
+}
+
+#menu .menu-card-container .menu-card div .menu-img {
     width: 100%;
     aspect-ratio: 1/1;
     margin-bottom: 15px;
     object-fit: cover;
+}
+
+#menu .menu-card-container .menu-card div .price {
+    position: absolute;
+    top: 85%;
+    right: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, .75);
 }
 
 #menu .menu-card-container .menu-card .card-body {
@@ -369,47 +418,11 @@ html {
 
 #gallery .gallery-container .card .card-title p {
     color: white;
-    font-size: 20px;
+    font-size: 14px;
+    text-align: center;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 0 10px 14px;
 }
-
-#gallery .gallery-container .card .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 99999;
-}
-
-#gallery .gallery-container .card .overlay:target {
-    display: flex;
-}
-
-#gallery .gallery-container .card .overlay-item {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-#gallery .gallery-container .card .overlay:target .overlay-item {
-    width: auto;
-    height: auto;
-    max-width: 90%;
-    max-height: 90%;
-}
-
-#gallery .gallery-container .card .overlay:target img {
-    display: block;
-    margin: 0 auto;
-}
-
 
 #contact-us {
     padding: 20px 30px 50px;
@@ -431,11 +444,11 @@ html {
     margin-bottom: 50px;
 }
 
-#contact-us h1 .contact-text {
+#contact-us h1 .kontak-text {
     color: #983939;
 }
 
-#contact-us h1 .us-text {
+#contact-us h1 .kami-text {
     color: #f5b919;
 }
 
@@ -525,8 +538,15 @@ html {
         font-size: 114px;
     }
 
-    #home h2 {
-        font-size: 148px;
+
+    #home p {
+        font-size: 32px;
+    }
+
+    #home .cta-button {
+        padding: 10px 18px;
+        font-size: 22px;
+        background-color: #983939;
     }
 
 
@@ -562,7 +582,7 @@ html {
 
     #menu .menu-card-container {
         gap: 15px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     #menu .menu-card-container .menu-card .card-body {
@@ -589,6 +609,11 @@ html {
         gap: 25px;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         padding: 25px;
+    }
+
+    #gallery .gallery-container .card .card-title p {
+        font-size: 20px;
+        margin-bottom: 20px;
     }
 
     #contact-us h1 {
@@ -643,10 +668,17 @@ html {
 @media (min-width: 1024px) {
     #menu .menu-card-container {
         gap: 15px;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     #gallery .gallery-container {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    #menu .menu-card-container {
+        gap: 15px;
         grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 }
